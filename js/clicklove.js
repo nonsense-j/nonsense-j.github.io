@@ -1,48 +1,54 @@
-/*网页鼠标点击特效（爱心）*/
 !(function(e, t, a) {
+  function n() {
+    c(
+      ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
+    ),
+      o(),
+      r();
+  }
   function r() {
-    for (var e = 0; e < s.length; e++)
-      s[e].alpha <= 0
-        ? (t.body.removeChild(s[e].el), s.splice(e, 1))
-        : (s[e].y--,
-          (s[e].scale += 0.004),
-          (s[e].alpha -= 0.013),
-          (s[e].el.style.cssText =
+    for (var e = 0; e < d.length; e++)
+      d[e].alpha <= 0
+        ? (t.body.removeChild(d[e].el), d.splice(e, 1))
+        : (d[e].y--,
+          (d[e].scale += 0.004),
+          (d[e].alpha -= 0.013),
+          (d[e].el.style.cssText =
             "left:" +
-            s[e].x +
+            d[e].x +
             "px;top:" +
-            s[e].y +
+            d[e].y +
             "px;opacity:" +
-            s[e].alpha +
+            d[e].alpha +
             ";transform:scale(" +
-            s[e].scale +
+            d[e].scale +
             "," +
-            s[e].scale +
+            d[e].scale +
             ") rotate(45deg);background:" +
-            s[e].color +
+            d[e].color +
             ";z-index:99999"));
     requestAnimationFrame(r);
   }
-  function n() {
+  function o() {
     var t = "function" == typeof e.onclick && e.onclick;
     e.onclick = function(e) {
-      t && t(), o(e);
+      t && t(), i(e);
     };
   }
-  function o(e) {
+  function i(e) {
     var a = t.createElement("div");
     (a.className = "heart"),
-      s.push({
+      d.push({
         el: a,
         x: e.clientX - 5,
         y: e.clientY - 5,
         scale: 1,
         alpha: 1,
-        color: c()
+        color: s()
       }),
       t.body.appendChild(a);
   }
-  function i(e) {
+  function c(e) {
     var a = t.createElement("style");
     a.type = "text/css";
     try {
@@ -52,7 +58,7 @@
     }
     t.getElementsByTagName("head")[0].appendChild(a);
   }
-  function c() {
+  function s() {
     return (
       "rgb(" +
       ~~(255 * Math.random()) +
@@ -63,19 +69,18 @@
       ")"
     );
   }
-  var s = [];
-  (e.requestAnimationFrame =
-    e.requestAnimationFrame ||
-    e.webkitRequestAnimationFrame ||
-    e.mozRequestAnimationFrame ||
-    e.oRequestAnimationFrame ||
-    e.msRequestAnimationFrame ||
-    function(e) {
-      setTimeout(e, 1e3 / 60);
-    }),
-    i(
-      ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
-    ),
-    n(),
-    r();
+  var d = [];
+  (e.requestAnimationFrame = (function() {
+    return (
+      e.requestAnimationFrame ||
+      e.webkitRequestAnimationFrame ||
+      e.mozRequestAnimationFrame ||
+      e.oRequestAnimationFrame ||
+      e.msRequestAnimationFrame ||
+      function(e) {
+        setTimeout(e, 1e3 / 60);
+      }
+    );
+  })()),
+    n();
 })(window, document);
