@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://nonsense-j.githun.io/2019/11/20/hello-world/</loc>
+    
+    <lastmod>2019-11-23T02:28:01.035Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://nonsense-j.githun.io/2019/11/22/try/</loc>
     
     <lastmod>2019-11-21T17:42:02.998Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://nonsense-j.githun.io/about/index.html</loc>
     
     <lastmod>2019-11-21T12:55:09.844Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nonsense-j.githun.io/2019/11/20/hello-world/</loc>
-    
-    <lastmod>2019-11-20T14:34:03.037Z</lastmod>
     
   </url>
   
